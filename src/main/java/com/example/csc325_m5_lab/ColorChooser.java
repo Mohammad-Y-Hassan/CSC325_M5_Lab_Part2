@@ -4,12 +4,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class ColorChooser extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ColorChooser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/csc325_m5_lab/ColorChooser.fxml"));
+
+        GridPane root = new GridPane();
+        loader.setRoot(root);
+        loader.load();
 
         Scene scene = new Scene(root);
         stage.setTitle("Color Chooser");
@@ -18,6 +25,6 @@ public class ColorChooser extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 }
